@@ -9,3 +9,7 @@ iv) view items on the shopping list
 v) delete/remove items from the shopping list
 
 Users will also be able to delete the whole shopping list. 
+
+Built and added user interfaces in HTML/CSS
+Added UI wireframes
+Added UML diagram for 3 classes : user, shopping_list and shopping_list_item
