@@ -29,3 +29,39 @@ html *
     cursor: pointer;
     width: 100%;
 }
+
+#dropbutton {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    z-index: 1;
+}
+
+#dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    display: block;
+}
+
+#dropdown-content a:hover {
+
+    background-color: yellow
+}
+
+#dropdown:hover .dropdown-content {
+    display: block;
+}
