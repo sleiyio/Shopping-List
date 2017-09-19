@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/shopping_list.css" /> 
+    <title>Shopping List</title>   
+</head>
+<style>
+.dropbutton {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: yellow
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+<body>
+
+  <h1>Shopping List Dashboard</h1>
+
+  <div class="dropdown" style="float:left;">
+
+    <button class="dropbutton">Shopping List</button>
+    <div class="dropdown-content" style="left:0;">
+      <a href="#">New List</a>
+      <a href="#">Edit List</a>
+      <a href="#">Update List</a>
+      <a href="#">Delete List</a>
+      <a href="#">Close</a>
+    </div> 
+
+  </div>
+</body>
+</html>
