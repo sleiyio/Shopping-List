@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>	
+    <script type="text/javascript" src="../static/js/shopping_list.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/shopping_list.css" />
     <title>Shopping List</title>    
   </head>
@@ -38,26 +39,9 @@
 			<input type="password" name="repeat_password" value="Repeat Password" required>
 			<br>
 			<br>
-  			<input id="newAccount"  type="button" value="Create Account" onclick="window.open('index', '_blank');">
+			<button id="btnNewAccount"  type="button">Create Account</button>
 		</div>
 	</form> 
-	<script>
-		$(function() {
-			$('#newAcc').click(function() {
-		 
-				$.ajax({
-					url: '/signUp',
-					data: $('form').serialize(),
-					type: 'POST',
-					success: function(response) {
-						console.log(response);
-					},
-					error: function(error) {
-						console.log(error);
-					}
-				});
-			});
-		});
-	</script>	
+	
 </body>
 </html>
