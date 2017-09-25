@@ -10,3 +10,4 @@ install:
  - pip install Flask-API
 script: 
    test_shopping_list.py
+   app.py
