@@ -1,36 +1,31 @@
-<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/shopping_list.css" />
-    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/shopping_list.js"></script>
-    <title>Shopping List</title>    
-  </head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>	
+		<script type="text/javascript" src="../static/js/shopping_list.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/login.css" />
+		<title>Sign in</title>  
+	</head>
+	<body>
+		<form class="modal-content" action="" method="post" name="login">    
+			<div class="container">	
+				<h3><strong><u>Please log in..</u></strong></h3>			
+				<label><b>Email</b></label>
+				<input type="text" placeholder="Enter email address" name="email" required>
 		
-  
-  <h1>Account Log in</h1>
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="password" required>
+						
+				<button>Login</button>					
+			</div>
 
-	<form action="/checkUser" style="border:1px solid">
-		
-		<div class="container">		
-  			
-			<label><b>Email</b></label><br>
-			<input type="text" name="email" value="Enter email" required>
-  			<br>  			
-			<label><b>Password</b></label><br>
-			<input type="password" name="password" value="Enter Password" required>
-			<br>    			
-			<br>
-			<button id="btnLogin" type="button">Log in</button>
-			<p>New user?<a href="createAccount">Create account</a>.</p>
-		</div>
-	</form> 
-
-	<body>	
-
-</body>
-</html>
+			<div class="container" style="background-color:#f1f1f1">
+				<button type="button" class="cancelbtn" onClick="window.location.href='/index';">Cancel</button>
+				<span class="newuser"><a href="/createAccount">New user? Click here to sign up</a></span>
+			</div>
+		</form>        
+	</body>
+</html>		
+			 
