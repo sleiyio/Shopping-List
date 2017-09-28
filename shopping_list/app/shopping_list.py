@@ -1,11 +1,10 @@
 
 class shoppingList(object):
 
-    def __init__(self, userId = 1, numberOfItems = 0, items = {}, totalCost = 0):
-        self.userId = userId
+    def __init__(self, listName = "", items = {}, numberOfItems = 0):
+        self.listName = listName
         self.numberOfItems = 0
         self.items = {}
-        self.totalCost = totalCost
 
     def addItem(self, item, quantity):
         #Add new item to shopping list
