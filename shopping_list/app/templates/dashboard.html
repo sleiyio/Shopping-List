@@ -4,60 +4,97 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/shopping_list.css" /> 
-    <title>Shopping List</title>   
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>	
+    <script type="text/javascript" src="../static/js/dashboard.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/dashboard.css" /> 
+
+    <title>Shopping List</title> 
 </head>
-<style>
-.dropbutton {
-    background-color: green;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    min-width: 200px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 10px 15px;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: yellow
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-</style>
 <body>
 
-  <h1>Shopping List Dashboard</h1>
+<div><h3>Shopping List Dashboard for user - {{ user.name }}</h3></div>
 
-  <div class="dropdown" style="float:left;">
+<div class="tab">
+  <button class="tablinks" onclick="document.getElementById('id01').style.display='block'">New List</button>
+  <button class="tablinks" onclick="openTab(event, 'ViewList')">View List</button>
+  <button class="tablinks" onClick="window.location.href='/index';">Log Out</button>
+</div>
 
-    <button class="dropbutton">Shopping List</button>
-    <div class="dropdown-content" style="left:0;">
-      <a href="#">New List</a>
-      <a href="#">Edit List</a>
-      <a href="#">Update List</a>
-      <a href="#">Delete List</a>
-      <a href="#">Close</a>
-    </div> 
+<div id="NewList" class="tabcontent">
 
-  </div>
+  <div id="listhdr"></div>
+  <input id="listname" type="hidden" name='shoppinglistname' required/>
+
+  
+
+	<table id="newListTable" style="width:50%">
+		<tr>	
+			<td width="80%" align="center"><strong>Item Description</strong></td>
+			<td width="20%" align="center"><strong>Quantity</strong></td>
+		</tr>
+		<tr>
+			<td><input style='width:100%' name='itemdescription1' required/></td>
+			<td><input style='width:100%' name='itemdquantity1' required/></td>
+		</tr>    
+	</table>
+	<br>
+
+	<button type="button" onclick="addRowNewList()">Add row</button>
+  <button>Update List</button> 
+
+  
+  
+</div>
+
+<div id="ViewList" class="tabcontent">
+  <h3>View Shopping Lists</h3>
+    
+  <select name="Shopping Lists" style="font-size: 20px;">
+    <option value="List1">Shopping List 1</option>
+    <option value="List2">Shopping List 2</option>
+    <option value="List3">Shopping List 3</option>
+    <option value="List4">Shopping List 4</option>
+  </select>
+  
+  <br><br><br>
+
+  <table id="viewListTable" style="width:50%">
+		<tr>	
+			<td width="80%" align="center"><strong>Item Description</strong></td>
+			<td width="20%" align="center"><strong>Quantity</strong></td>
+		</tr>
+		<tr>
+			<td><input style='width:100%'/></td>
+			<td><input style='width:100%'/></td>			
+		</tr>    
+	</table>
+	<br>
+
+	<button type="button" onclick="addRowViewList()">Add row</button>
+	<button type="button" onclick="updateList('viewListTable')">Update List</button>
+	
+</div>
+
+<div id="Logout" class="tabcontent">
+  <h3>Close</h3>
+  <p>Close and return to index page.</p>
+</div>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content" action="javascript:getListName(event);">    
+
+    <div class="container">
+      <label><b>Please enter the title of your shopping list</b></label>
+      <input type="text" id="shoppinglist" required>
+        
+      <button type="submit">Create New List</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>      
+    </div>
+  </form>
+</div>
 </body>
 </html>

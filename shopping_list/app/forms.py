@@ -11,3 +11,12 @@ class NewUser(Form):
     firstname = StringField('firstname', validators=[DataRequired()])
     lastname = StringField('lastname', validators=[DataRequired()])   
     password = StringField('password', validators=[DataRequired()])
+
+class NewShoppingList(Form):
+    shoppinglistname = StringField('shoppinglistname', validators=[DataRequired()])
+    itemdescription1 = StringField('itemdescription1', validators=[DataRequired()])
+    itemdquantity1 = StringField('itemdquantity1', validators=[DataRequired()])
+    itemdescription2 = StringField('itemdescription2', validators=[DataRequired()])
+    itemdquantity2 = StringField('itemdquantity2', validators=[DataRequired()])
+    itemdescription3 = StringField('itemdescription3', validators=[DataRequired()])
+    itemdquantity3 = StringField('itemdquantity3', validators=[DataRequired()])
