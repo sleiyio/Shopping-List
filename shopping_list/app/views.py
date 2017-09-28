@@ -1,6 +1,7 @@
-from flask import render_template, flash, redirect, request
+from flask import flash, redirect, render_template, request
 from app import app
-from .forms import LoginForm, NewUser
+from .forms import LoginForm, NewUser, NewShoppingList
+from app.user import User
 
 users = {}
 
@@ -12,13 +13,14 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    #Log in user    
-    form = LoginForm()
+    #Log in user       
+    form = LoginForm()        
     if form.is_submitted:
         #Check if the user exists
         return_value = checkUser(form)
-        if return_value:
-            return redirect('/dashboard')
+        if return_value: 
+            user = {'name': form.email.data}            
+            return render_template('dashboard.html', user=user)
         
     return render_template('login.html')
 
@@ -39,8 +41,7 @@ def checkUser(form):
 def createAccount():
     #Create new user    
     form = NewUser() 
-    if form.is_submitted: 
-              
+    if form.is_submitted:              
         return_value = createUser(form)
         if return_value:
             return redirect('/login')
@@ -55,10 +56,12 @@ def createUser(form):
     lastname = form.lastname.data
     email = form.email.data
     password = form.password.data
+
+    #newUser = User(firstname, lastname, email, password)
     
     if firstname and lastname and email and password:
         userNo = len(users) + 1
-        users[userNo] = {'fname' : firstname, 'lname' : lastname, 'email' : email, 'pwd' : password}
+        users[userNo] = {'fname' : firstname, 'lname' : lastname, 'email' : email, 'pwd' : password} #newUser
         return True
     else:
         return False
@@ -67,5 +70,24 @@ def createUser(form):
 @app.route('/dashboard')
 def dashBoard():
     #Display dashboard
+    form = NewShoppingList()
+    if form.is_submitted:
+        return_value = updateShoppingList(form)
+        if return_value:
+            return redirect('/dashboard')
+
     return render_template("dashboard.html")
+
+
+def updateShoppingList(form):
+    #Update shopping list with items supplied by user
+    shoppinglistname = ""
+    itemdescription1 = form.itemdescription1
+    itemdquantity1 = form.itemdquantity1
+    itemdescription2 = form.itemdescription2
+    itemdquantity2 = form.itemdquantity2
+    itemdescription3 = form.itemdescription3
+    itemdquantity3 = form.itemdquantity3
+
+    return 1
 
